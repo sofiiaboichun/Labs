@@ -3,6 +3,23 @@
 #include <string>
 using namespace std;
 
+void number_of_words(string str, string a){
+	vector<string> arr;
+	string delim(" ");
+    size_t prev = 0;
+    size_t next;
+    size_t delta = delim.length();
+    int k=0;
+    while( ( next = str.find( delim, prev ) ) != string::npos ){
+        string tmp = str.substr( prev, next-prev );
+        arr.push_back( str.substr( prev, next-prev ) );
+        prev = next + delta;
+        if (tmp.find(a) != std::string::npos)
+    	k=k+1;
+    }
+    cout<<"Number of words is "<<k<<endl;
+}
+
 int main ()
 {
     vector<string> arr;
@@ -12,19 +29,8 @@ int main ()
     str=str+" ";
     cout << "Please, enter begin chars: ";
     cin >> a;
-    string delim(" ");
-    size_t prev = 0;
-    size_t next;
-    size_t delta = delim.length();
-    int k=0;
-    while( ( next = str.find( delim, prev ) ) != string::npos ){   
-        string tmp = str.substr( prev, next-prev );        
-        arr.push_back( str.substr( prev, next-prev ) );
-        prev = next + delta;
-        if (tmp.find(a) != std::string::npos)
-    	k=k+1;
-    }
+    number_of_words(str, a);
   
-    cout<<"Number of words is "<<k<<endl;
+    
     return 0;
 }
