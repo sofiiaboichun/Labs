@@ -4,8 +4,8 @@
 using namespace std;
 
 void number_of_words(string str, string a){
-	vector<string> arr;
-	string delim(" ");
+    vector<string> arr;
+    string delim(" ");
     size_t prev = 0;
     size_t next;
     size_t delta = delim.length();
