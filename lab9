@@ -1,22 +1,26 @@
 #include <iostream>
 #include <vector>
 #include <string>
+
 using namespace std;
 
-void number_of_words(string str, string a){
-    vector<string> arr;
-    string delim(" ");
+void number_of_words(string str, char a){
+	vector<string> arr;
+	string delim(" ");
     size_t prev = 0;
     size_t next;
     size_t delta = delim.length();
+
     int k=0;
     while( ( next = str.find( delim, prev ) ) != string::npos ){
         string tmp = str.substr( prev, next-prev );
         arr.push_back( str.substr( prev, next-prev ) );
         prev = next + delta;
-        if (tmp.find(a) != std::string::npos) 
+        if (tmp.rfind(a, 0) == 0) 
     	    k=k+1;
     }
+    
+	
     cout<<"Number of words is "<<k<<endl;
 }
 
@@ -24,7 +28,8 @@ int main ()
 {
     vector<string> arr;
     cout << "Please, enter string: ";
-    string str, a;
+    string str; 
+	char a;
     getline(std::cin, str);
     str=str+" ";
     cout << "Please, enter begin chars: ";
