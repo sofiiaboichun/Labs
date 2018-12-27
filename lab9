@@ -15,7 +15,7 @@ void number_of_words(string str, string a){
         arr.push_back( str.substr( prev, next-prev ) );
         prev = next + delta;
         if (tmp.find(a) != std::string::npos)
-    	k=k+1;
+    	    k=k+1;
     }
     cout<<"Number of words is "<<k<<endl;
 }
